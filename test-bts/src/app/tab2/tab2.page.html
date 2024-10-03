@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tab 2
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list *ngFor="let x of dataChecklist">
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="4">
+          Name
+        </ion-col>
+        <ion-col size="4">
+          Item
+        </ion-col>
+        <ion-col size="4">
+          Status
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="4">
+          {{x.name}}
+        </ion-col>
+        <ion-col size="4">
+          {{x.items ? '' : '-'}}
+        </ion-col>
+        <ion-col size="4">
+          {{x.checklistCompletionStatus}}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+
+
+  
+
+</ion-content>

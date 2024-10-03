@@ -1,0 +1,98 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="" (click)="cancel()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>REGISTER</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid fixed class="grid-login">
+    <ion-row class="ion-align-items-center ion-justify-content-center">
+      <ion-col class="ion-align-self-center ion-text-center" size="12">
+        <ion-card mode="ios" color="light" class="ion-no-padding">
+          <ion-card-content class="ion-no-padding">
+            <ion-item lines="none" color="light">
+              <ion-icon
+                slot="start"
+                name="mail-outline"
+                color="medium"
+              ></ion-icon>
+              <ion-input
+                [(ngModel)]="user.email"
+                errorText="Please enter a valid email"
+                placeholder="Email"
+                clear-input="true"
+                class="ion-text-left"
+                autocorrect="off"
+              >
+              </ion-input>
+            </ion-item>
+          </ion-card-content>
+
+          <ion-card-content class="ion-no-padding">
+            <ion-item lines="none" color="light">
+              <ion-icon
+                slot="start"
+                name="person-circle-outline"
+                color="medium"
+              ></ion-icon>
+              <ion-input
+                [(ngModel)]="user.username"
+                errorText="Please enter a valid username"
+                placeholder="Username"
+                clear-input="true"
+                class="ion-text-left"
+                autocorrect="off"
+              >
+              </ion-input>
+            </ion-item>
+          </ion-card-content>
+
+          <ion-card-content class="ion-no-padding">
+            <ion-item color="light">
+              <ion-icon
+                slot="start"
+                name="key-outline"
+                color="medium"
+              ></ion-icon>
+              <ion-input
+                [(ngModel)]="user.password"
+                [type]="!showPassword ? 'password' : 'text'"
+                placeholder="Password"
+                inputmode="password"
+                class="ion-text-left"
+                autocorrect="off"
+              >
+              </ion-input>
+              <ion-icon
+                [name]="!showPassword ? 'eye-sharp' : 'eye-off-sharp'"
+                slot="end"
+                class="eye"
+                (click)="showOffPassword()"
+              ></ion-icon>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+        <ion-card mode="ios" class="ion-no-padding">
+          <ion-card-content class="ion-no-padding">
+            <ion-item lines="none" button (click)="doSubmit()" style="background-color: #1382b8;">
+              <ion-label class="ion-text-center" color="light"
+              >Kirim</ion-label>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+        <ion-card mode="ios" class="ion-no-padding">
+          <ion-card-content class="ion-no-padding">
+            <ion-item lines="none" button (click)="login()" color="medium">
+              <ion-label class="ion-text-center" color="light"
+              >Login</ion-label>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

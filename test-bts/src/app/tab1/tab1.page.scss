@@ -1,0 +1,17 @@
+ion-content {
+    --padding-bottom: 80px;
+  
+    ion-list {
+      border-radius: 10px;
+      margin-left: 11px;
+      margin-right: 11px;
+      padding-left: 11px;
+      padding-right: 11px;
+  
+      ion-item {
+        --inner-padding-start: 0px;
+        --padding-start: 0px;
+      }
+    }
+  }
+
