@@ -1,4 +1,35 @@
-<div id="container">
-  <strong>{{ name }}</strong>
-  <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-</div>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="" (click)="cancel()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Checklist Item</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid fixed class="grid-login">
+    <ion-row class="ion-align-items-center ion-justify-content-center">
+      <ion-col class="ion-align-self-center ion-text-center" size="12">
+        <ion-card mode="ios" color="light" class="ion-no-padding"      
+          *ngFor="let x of dataDetailChecklist"
+          (click)="datachecklistItem(dataChecklist.id, x.id)">
+          <ion-card-content class="ion-no-padding">
+            <ion-item lines="none" color="light" detail>
+              <ion-text >
+                <h4>{{x.itemName}}</h4>
+              </ion-text>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addCheckItem(dataChecklist.id)">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+

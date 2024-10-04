@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="" (click)="cancel()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detail Checklist Item</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid fixed class="grid-login">
+    <ion-row class="ion-align-items-center ion-justify-content-center">
+      <ion-col class="ion-align-self-center ion-text-center" size="12">
+        <ion-card mode="ios" color="light" class="ion-no-padding" *ngFor="let x of detailChecklistItem">
+          <ion-card-content class="ion-no-padding">
+            <ion-item lines="none" color="light">
+              <ion-input
+                [(ngModel)]="itemName"
+                errorText="Please enter a name checklist item"
+                placeholder="{{x.itemName}}"
+                clear-input="true"
+                class="ion-text-left"
+                autocorrect="off"
+              >
+              </ion-input>
+              <ion-button  expand="block" fill="clear" shape="round" (click)="renameItemName(dataChecklist.id, dataDetailChecklist.id)">
+                update
+              </ion-button>
+            </ion-item>
+
+            <ion-item lines="none" color="light">
+              <ion-input
+                [(ngModel)]="status"
+                errorText="Please enter a name status"
+                placeholder="{{x.checklistCompletionStatus}}"
+                clear-input="true"
+                class="ion-text-left"
+                autocorrect="off"
+              >
+              </ion-input>
+              <ion-button  expand="block" fill="clear" shape="round" (click)="updateStatus(dataChecklist.id, dataDetailChecklist.id)">
+                update
+              </ion-button>
+            </ion-item>
+          </ion-card-content>
+          <ion-button expand="block" fill="clear" shape="round" color="danger" (click)="deleteChecklistItem(dataChecklist.id, dataDetailChecklist.id)">
+            <ion-icon name="trash-outline" color="danger"></ion-icon>
+          </ion-button>        
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

@@ -4,6 +4,7 @@ import { LoadingController, ModalController, NavController } from '@ionic/angula
 import { StateService } from 'src/app/services/state.service';
 import { StorageService } from 'src/app/services/storage.service';
 import { ApiService } from '../services/api.service';
+import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 
 @Component({
   selector: 'app-tab1',
@@ -61,7 +62,7 @@ export class Tab1Page {
           } else {
             console.log(res);
             this.toast.presentToast(
-              res.data.errorMessage
+              'Server terjadi gangguan'
             );
           }
           // loading.dismiss();
@@ -102,5 +103,14 @@ export class Tab1Page {
           loading.dismiss();
         }
       });
+  }
+
+  async detailDataChecklist(dataChecklist: any){
+    const modal = await this.modalController.create({
+      component: ExploreContainerComponent,
+      componentProps: { dataChecklist : dataChecklist },
+    });
+
+    await modal.present();
   }
 }

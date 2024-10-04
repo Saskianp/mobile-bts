@@ -7,11 +7,14 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-button (click)="regist()" expand="block"  shape="round">
+  <ion-card style="margin-top: 50%;" class="ion-padding">
+    <ion-button (click)="regist()" expand="block"  shape="round" color="success">
     Regist
-  </ion-button>
-  <br>
-  <ion-button (click)="login()" expand="block"  shape="round">
-    Login
-  </ion-button>
+    </ion-button>
+    <br>
+    <ion-button (click)="login()" expand="block"  shape="round">
+      Login
+    </ion-button>
+  </ion-card>
+
 </ion-content>
